@@ -9,15 +9,6 @@
 * as needed by the sorting algorithms here.
 */
 
-void swapFunction(int *nElementA, int *nElementB)
-{
-    int nTemp;
-
-    nTemp = *nElementA;
-    *nElementA = *nElementB;
-    *nElementB = nTemp;
-}
-
 void swapRecords(Record *a, Record *b) 
 {
     Record temp;
@@ -27,7 +18,43 @@ void swapRecords(Record *a, Record *b)
     *b = temp;
 }
 
+void merge(int *arr, int left, int middle, int right)
+{
+	int i = 0, j = 0, k = 1;
+	int n1 = middle - left + 1;
+	int n2 = right - middle;
+	int L[n1], R[n2];
+	
+    for (i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[middle + 1 + j];
 
+	while (i < n1 && j < n2) 
+	{
+		if (L[i] >= R[j]) {
+			arr[k] = L[i];
+			i++;
+		}
+		else {
+			arr[k] = R[j];
+			j++;
+		}
+		k++;
+	}
+	
+	while (i < n1) {
+		arr[k] = L[i];
+		i++;
+		k++;
+	}
+	
+	while (j < n2) {
+		arr[k] = R[j];
+		j++;
+		k++;
+	}
+}
 
 void insertionSort(Record *arr, int n)
 {
@@ -78,13 +105,17 @@ void selectionSort(Record *arr, int n)
 void mergeSort(Record *arr, int p, int r)
 {
     // TODO: Implement this sorting algorithm here.
+	int m;
 
 
-
-
-
-
+	if (p > r) {
+		m = p + (r - 1) / 2;
+		mergeSort(arr, p, r);
+		mergeSort(arr, m + 1, r);
+		merge(arr, p, m, r);
+	}
 }
+
 
 /*
 * Define AT LEAST ONE more sorting algorithm here, apart from the
