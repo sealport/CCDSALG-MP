@@ -9,23 +9,16 @@
 * as needed by the sorting algorithms here.
 */
 
-
-
-
-
-
-void insertionSort(Record *arr, int n)
+void swapFunction(int *nElementA, int *nElementB)
 {
-    // TODO: Implement this sorting algorithm here.
+    int nTemp;
 
-
-
-
-
-
+    nTemp = *nElementA;
+    *nElementA = *nElementB;
+    *nElementB = nTemp;
 }
 
-void swap(Record *a, Record *b) 
+void swapRecords(Record *a, Record *b) 
 {
     Record temp;
 
@@ -33,6 +26,32 @@ void swap(Record *a, Record *b)
     *a = *b;
     *b = temp;
 }
+
+
+
+void insertionSort(Record *arr, int n)
+{
+    int i, j;
+    Record nKey;
+
+
+    for (i = 1 ; i < n ; i++)
+    {
+        nKey = arr[i];
+        j = i - 1;
+
+
+        while (j >= 0 && arr[j].idNumber > nKey.idNumber)
+        {
+            arr[j + 1] = arr[j]; // Shift right
+            j--;
+        }
+
+
+        arr[j + 1] = nKey;
+    }
+}
+
 
 void selectionSort(Record *arr, int n)
 {
@@ -51,7 +70,7 @@ void selectionSort(Record *arr, int n)
         }
 
         if (idxLowest != i) {
-            swap(&arr[i],&arr[idxLowest]);
+            swapRecords(&arr[i],&arr[idxLowest]);
         } 
     }
 }
@@ -72,6 +91,21 @@ void mergeSort(Record *arr, int p, int r)
 * ones given above. Make sure that the method accepts an array of
 * record structures.
 */
+void bubbleSort(Record *arr, int nSize)
+{
+    int i, j;
+
+    for (i = 0 ; i < nSize ; i++)
+    {
+        for (j = nSize - 1 ; j >= i + 1 ; j--)
+        {
+            if (arr[j].idNumber < arr[j - 1].idNumber)
+            {
+                swapRecords(&arr[j], &arr[j - 1]);
+            }
+        }
+    }
+}
 
 
 
