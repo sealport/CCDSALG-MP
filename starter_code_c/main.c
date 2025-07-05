@@ -4,18 +4,18 @@
 #include "timer.c"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h> // new (added for malloc)
 
 int main()
 {
-    Record almostsorted[100000];
-    Record random100[100];
-    Record random25000[25000];
-    Record random50000[50000];
-    Record random75000[75000];
-    Record random100000[100000];
-    Record totallyreversed[100000];
-    int input;
+    Record *records = malloc(100000 * sizeof(Record));
+
+    long startTime, endTime; 
     
+    // Sizes in order: 100000, 100, 25000, 50000, 75000, 100000
+    long executionTimes[7];
+    
+    int input;
     printf("Options:\n");
     printf("1 - Insertion Sort\n");
     printf("2 - Selection Sort\n");
@@ -24,193 +24,265 @@ int main()
 
     printf("Choice: ");
     scanf("%d", &input);
-    
-    readFile(almostsorted, "data/almostsorted.txt");
-    readFile(random100, "data/random100.txt");
-    readFile(random25000, "data/random25000.txt");
-    readFile(random50000, "data/random50000.txt");
-    readFile(random75000, "data/random75000.txt");
-    readFile(random100000, "data/random100000.txt");
-
-    long startTime, endTime; 
-
-    // Sizes in order: 100000, 100, 25000, 50000, 75000, 100000
-    long executionTimes[7];
 
     switch (input)
     {
     case 1: // Insertion sort
+        printf("Processing almostsorted.txt...\n");
+    
         // Get execution time for almostsorted.txt
+        readFile(records, "data/almostsorted.txt");
         startTime = currentTimeMillis();
-        insertionSort(almostsorted, 100000);
+        insertionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[0] = endTime - startTime;
 
+        printf("Processing random100.txt...\n");
+
         // Get execution time for random100.txt
+        readFile(records, "data/random100.txt");
         startTime = currentTimeMillis();
-        insertionSort(random100, 100);
+        insertionSort(records, 100);
         endTime = currentTimeMillis();
         executionTimes[1] = endTime - startTime;
 
+        printf("Processing random25000.txt...\n");
+
         // Get execution time for random25000.txt
+        readFile(records, "data/random25000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random25000, 25000);
+        insertionSort(records, 25000);
         endTime = currentTimeMillis();
         executionTimes[2] = endTime - startTime;
 
+        printf("Processing random50000.txt...\n");
+
         // Get execution time for random50000.txt
+        readFile(records, "data/random50000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random50000, 50000);
+        insertionSort(records, 50000);
         endTime = currentTimeMillis();
         executionTimes[3] = endTime - startTime;
 
+        printf("Processing random75000.txt...\n");
+
         // Get execution time for random75000.txt
+        readFile(records, "data/random75000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random75000, 75000);
+        insertionSort(records, 75000);
         endTime = currentTimeMillis();
         executionTimes[4] = endTime - startTime;
 
+        printf("Processing random100000.txt...\n");
+
         // Get execution time for random100000.txt
+        readFile(records, "data/random100000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random100000, 100000);
+        insertionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[5] = endTime - startTime;
 
+        printf("Processing totallyreversed.txt...\n");
+
         // Get execution time for totallyreversed.txt
+        readFile(records, "data/totallyreversed.txt");
         startTime = currentTimeMillis();
-        insertionSort(totallyreversed, 100000);
+        insertionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[6] = endTime - startTime;
         break;
 
     case 2: // Selection sort
+        printf("Processing almostsorted.txt...\n");
+
         // Get execution time for almostsorted.txt
+        readFile(records, "data/almostsorted.txt");
         startTime = currentTimeMillis();
-        selectionSort(almostsorted, 100000);
+        selectionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[0] = endTime - startTime;
 
+        printf("Processing random100.txt...\n");
+
         // Get execution time for random100.txt
+        readFile(records, "data/random100.txt");
         startTime = currentTimeMillis();
-        selectionSort(random100, 100);
+        selectionSort(records, 100);
         endTime = currentTimeMillis();
         executionTimes[1] = endTime - startTime;
 
+        printf("Processing random25000.txt...\n");
+        
         // Get execution time for random25000.txt
+        readFile(records, "data/random25000.txt");
         startTime = currentTimeMillis();
-        selectionSort(random25000, 25000);
+        selectionSort(records, 25000);
         endTime = currentTimeMillis();
         executionTimes[2] = endTime - startTime;
 
+        printf("Processing random50000.txt...\n");
+
         // Get execution time for random50000.txt
+        readFile(records, "data/random50000.txt");
         startTime = currentTimeMillis();
-        selectionSort(random50000, 50000);
+        selectionSort(records, 50000);
         endTime = currentTimeMillis();
         executionTimes[3] = endTime - startTime;
 
+        printf("Processing random75000.txt...\n");
+
         // Get execution time for random75000.txt
+        readFile(records, "data/random75000.txt");
         startTime = currentTimeMillis();
-        selectionSort(random75000, 75000);
+        selectionSort(records, 75000);
         endTime = currentTimeMillis();
         executionTimes[4] = endTime - startTime;
 
+        printf("Processing random100000.txt...\n");
+
         // Get execution time for random100000.txt
+        readFile(records, "data/random100000.txt");
         startTime = currentTimeMillis();
-        selectionSort(random100000, 100000);
+        selectionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[5] = endTime - startTime;
 
+        printf("Processing totallyreversed.txt...\n");
+        
         // Get execution time for totallyreversed.txt
+        readFile(records, "data/totallyreversed.txt");
         startTime = currentTimeMillis();
-        selectionSort(totallyreversed, 100000);
+        selectionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[6] = endTime - startTime;
         break;
     
     case 3: // Merge Sort
+        printf("Processing almostsorted.txt...\n");
+
         // Get execution time for almostsorted.txt
+        readFile(records, "data/almostsorted.txt");
         startTime = currentTimeMillis();
-        insertionSort(almostsorted, 100000);
+        insertionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[0] = endTime - startTime;
 
+        printf("Processing random100.txt...\n");
+
         // Get execution time for random100.txt
+        readFile(records, "data/random100.txt");
         startTime = currentTimeMillis();
-        insertionSort(random100, 100);
+        insertionSort(records, 100);
         endTime = currentTimeMillis();
         executionTimes[1] = endTime - startTime;
 
+        printf("Processing random25000.txt...\n");
+
         // Get execution time for random25000.txt
+        readFile(records, "data/random25000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random25000, 25000);
+        insertionSort(records, 25000);
         endTime = currentTimeMillis();
         executionTimes[2] = endTime - startTime;
 
+        printf("Processing random50000.txt...\n");
+
         // Get execution time for random50000.txt
+        readFile(records, "data/random50000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random50000, 50000);
+        insertionSort(records, 50000);
         endTime = currentTimeMillis();
         executionTimes[3] = endTime - startTime;
 
+        printf("Processing random75000.txt...\n");
+
         // Get execution time for random75000.txt
+        readFile(records, "data/random75000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random75000, 75000);
+        insertionSort(records, 75000);
         endTime = currentTimeMillis();
         executionTimes[4] = endTime - startTime;
 
+        printf("Processing random100000.txt...\n");
+
         // Get execution time for random100000.txt
+        readFile(records, "data/random100000.txt");
         startTime = currentTimeMillis();
-        insertionSort(random100000, 100000);
+        insertionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[5] = endTime - startTime;
 
+        printf("Processing totallyreversed.txt...\n");
+
         // Get execution time for totallyreversed.txt
+        readFile(records, "data/totallyreversed.txt");
         startTime = currentTimeMillis();
-        insertionSort(totallyreversed, 100000);
+        insertionSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[6] = endTime - startTime;
         break;
     
     case 4: // Bubble sort
+        printf("Processing almostsorted.txt...\n");
+
         // Get execution time for almostsorted.txt
+        readFile(records, "data/almostsorted.txt");
         startTime = currentTimeMillis();
-        bubbleSort(almostsorted, 100000);
+        bubbleSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[0] = endTime - startTime;
 
+        printf("Processing random100.txt...\n");
+        
         // Get execution time for random100.txt
+        readFile(records, "data/random100.txt");
         startTime = currentTimeMillis();
-        bubbleSort(random100, 100);
+        bubbleSort(records, 100);
         endTime = currentTimeMillis();
         executionTimes[1] = endTime - startTime;
 
+        printf("Processing random25000.txt...\n");
+
         // Get execution time for random25000.txt
+        readFile(records, "data/random25000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(random25000, 25000);
+        bubbleSort(records, 25000);
         endTime = currentTimeMillis();
         executionTimes[2] = endTime - startTime;
 
+        printf("Processing random50000.txt...\n");
+
         // Get execution time for random50000.txt
+        readFile(records, "data/random50000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(random50000, 50000);
+        bubbleSort(records, 50000);
         endTime = currentTimeMillis();
         executionTimes[3] = endTime - startTime;
 
+        printf("Processing random75000.txt...\n");
+
         // Get execution time for random75000.txt
+        readFile(records, "data/random75000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(random75000, 75000);
+        bubbleSort(records, 75000);
         endTime = currentTimeMillis();
         executionTimes[4] = endTime - startTime;
 
+        printf("Processing random100000.txt...\n");
+
         // Get execution time for random100000.txt
+        readFile(records, "data/random100000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(random100000, 100000);
+        bubbleSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[5] = endTime - startTime;
 
+        printf("Processing totallyreversed.txt...\n");
+
         // Get execution time for totallyreversed.txt
+        readFile(records, "data/totallyreversed.txt");
         startTime = currentTimeMillis();
-        bubbleSort(totallyreversed, 100000);
+        bubbleSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[6] = endTime - startTime;
         break;
@@ -218,13 +290,6 @@ int main()
     default:
         break;
     }
-    
-    readFile(almostsorted, "data/almostsorted.txt");
-    readFile(random100, "data/random100.txt");
-    readFile(random25000, "data/random25000.txt");
-    readFile(random50000, "data/random50000.txt");
-    readFile(random75000, "data/random75000.txt");
-    readFile(random100000, "data/random100000.txt");
 
     printf("Execution times:\n");
     printf("almostsorted.txt: %ld\n", executionTimes[0]);
