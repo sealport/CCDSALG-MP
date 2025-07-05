@@ -35,7 +35,7 @@ int main()
     long startTime, endTime; 
 
     // Sizes in order: 100000, 100, 25000, 50000, 75000, 100000
-    long executionTimes[6];
+    long executionTimes[7];
 
     switch (input)
     {
@@ -66,15 +66,21 @@ int main()
 
         // Get execution time for random75000.txt
         startTime = currentTimeMillis();
-        insertionSort(random75000, 100000);
+        insertionSort(random75000, 75000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[4] = endTime - startTime;
 
         // Get execution time for random100000.txt
         startTime = currentTimeMillis();
         insertionSort(random100000, 100000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[5] = endTime - startTime;
+
+        // Get execution time for totallyreversed.txt
+        startTime = currentTimeMillis();
+        insertionSort(totallyreversed, 100000);
+        endTime = currentTimeMillis();
+        executionTimes[6] = endTime - startTime;
         break;
 
     case 2: // Selection sort
@@ -104,15 +110,21 @@ int main()
 
         // Get execution time for random75000.txt
         startTime = currentTimeMillis();
-        selectionSort(random75000, 100000);
+        selectionSort(random75000, 75000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[4] = endTime - startTime;
 
         // Get execution time for random100000.txt
         startTime = currentTimeMillis();
         selectionSort(random100000, 100000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[5] = endTime - startTime;
+
+        // Get execution time for totallyreversed.txt
+        startTime = currentTimeMillis();
+        selectionSort(totallyreversed, 100000);
+        endTime = currentTimeMillis();
+        executionTimes[6] = endTime - startTime;
         break;
     
     case 3: // Merge Sort
@@ -142,15 +154,21 @@ int main()
 
         // Get execution time for random75000.txt
         startTime = currentTimeMillis();
-        insertionSort(random75000, 100000);
+        insertionSort(random75000, 75000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[4] = endTime - startTime;
 
         // Get execution time for random100000.txt
         startTime = currentTimeMillis();
         insertionSort(random100000, 100000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[5] = endTime - startTime;
+
+        // Get execution time for totallyreversed.txt
+        startTime = currentTimeMillis();
+        insertionSort(totallyreversed, 100000);
+        endTime = currentTimeMillis();
+        executionTimes[6] = endTime - startTime;
         break;
     
     case 4: // Bubble sort
@@ -180,15 +198,21 @@ int main()
 
         // Get execution time for random75000.txt
         startTime = currentTimeMillis();
-        bubbleSort(random75000, 100000);
+        bubbleSort(random75000, 75000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[4] = endTime - startTime;
 
         // Get execution time for random100000.txt
         startTime = currentTimeMillis();
         bubbleSort(random100000, 100000);
         endTime = currentTimeMillis();
-        executionTimes[0] = endTime - startTime;
+        executionTimes[5] = endTime - startTime;
+
+        // Get execution time for totallyreversed.txt
+        startTime = currentTimeMillis();
+        bubbleSort(totallyreversed, 100000);
+        endTime = currentTimeMillis();
+        executionTimes[6] = endTime - startTime;
         break;
     
     default:
@@ -209,6 +233,7 @@ int main()
     printf("random50000.txt: %ld\n", executionTimes[3]);
     printf("random75000.txt: %ld\n", executionTimes[4]);
     printf("random100000.txt: %ld\n", executionTimes[5]);
+    printf("totallyreversed.txt: %ld\n", executionTimes[6]);
 
     return 0;
 }
