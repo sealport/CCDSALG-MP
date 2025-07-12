@@ -20,7 +20,7 @@ void swapRecords(Record *a, Record *b)
 
 void merge(Record *arr, int left, int middle, int right)
 {
-	int i = 0, j = 0, k = 1;
+	int i = 0, j = 0, k = left;
 	int n1 = middle - left + 1;
 	int n2 = right - middle;
 	int L[n1], R[n2];
