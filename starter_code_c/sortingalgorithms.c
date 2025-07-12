@@ -18,7 +18,7 @@ void swapRecords(Record *a, Record *b)
     *b = temp;
 }
 
-void merge(int *arr, int left, int middle, int right)
+void merge(Record *arr, int left, int middle, int right)
 {
 	int i = 0, j = 0, k = 1;
 	int n1 = middle - left + 1;
@@ -108,7 +108,7 @@ void mergeSort(Record *arr, int p, int r)
 	int m;
 
 
-	if (p > r) {
+	if (p < r) {
 		m = p + (r - 1) / 2;
 		mergeSort(arr, p, r);
 		mergeSort(arr, m + 1, r);
