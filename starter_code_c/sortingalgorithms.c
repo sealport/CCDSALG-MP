@@ -109,7 +109,7 @@ void mergeSort(Record *arr, int p, int r)
 
 
 	if (p < r) {
-		m = p + (r - 1) / 2;
+		m = p + (r - p) / 2;
 		mergeSort(arr, p, r);
 		mergeSort(arr, m + 1, r);
 		merge(arr, p, m, r);
