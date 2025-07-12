@@ -102,17 +102,17 @@ void selectionSort(Record *arr, int n)
     }
 }
 
-void mergeSort(Record *arr, int p, int r)
+void mergeSort(Record *arr, int l, int r)
 {
     // TODO: Implement this sorting algorithm here.
 	int m;
 
 
-	if (p < r) {
-		m = p + (r - p) / 2;
-		mergeSort(arr, p, r);
+	if (l < r) {
+		m = l + (r - l) / 2;
+		mergeSort(arr, l, m);
 		mergeSort(arr, m + 1, r);
-		merge(arr, p, m, r);
+		merge(arr, l, m, r);
 	}
 }
 
