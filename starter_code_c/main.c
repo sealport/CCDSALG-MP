@@ -163,7 +163,7 @@ int main()
         // Get execution time for almostsorted.txt
         readFile(records, "data/almostsorted.txt");
         startTime = currentTimeMillis();
-        insertionSort(records, 100000);
+        mergeSort(records, 0, 99999); // 100000 - 1
         endTime = currentTimeMillis();
         executionTimes[0] = endTime - startTime;
 
@@ -172,7 +172,7 @@ int main()
         // Get execution time for random100.txt
         readFile(records, "data/random100.txt");
         startTime = currentTimeMillis();
-        insertionSort(records, 100);
+        mergeSort(records, 0, 99); // 100 - 1
         endTime = currentTimeMillis();
         executionTimes[1] = endTime - startTime;
 
@@ -181,7 +181,7 @@ int main()
         // Get execution time for random25000.txt
         readFile(records, "data/random25000.txt");
         startTime = currentTimeMillis();
-        insertionSort(records, 25000);
+        mergeSort(records, 0, 24999); // 25000 - 1
         endTime = currentTimeMillis();
         executionTimes[2] = endTime - startTime;
 
@@ -190,7 +190,7 @@ int main()
         // Get execution time for random50000.txt
         readFile(records, "data/random50000.txt");
         startTime = currentTimeMillis();
-        insertionSort(records, 50000);
+        mergeSort(records, 0, 49999); // 50000 - 1
         endTime = currentTimeMillis();
         executionTimes[3] = endTime - startTime;
 
@@ -199,7 +199,7 @@ int main()
         // Get execution time for random75000.txt
         readFile(records, "data/random75000.txt");
         startTime = currentTimeMillis();
-        insertionSort(records, 75000);
+        mergeSort(records, 0, 74999); // 75000 - 1
         endTime = currentTimeMillis();
         executionTimes[4] = endTime - startTime;
 
@@ -208,7 +208,7 @@ int main()
         // Get execution time for random100000.txt
         readFile(records, "data/random100000.txt");
         startTime = currentTimeMillis();
-        insertionSort(records, 100000);
+        mergeSort(records, 0, 99999); // 100000 - 1
         endTime = currentTimeMillis();
         executionTimes[5] = endTime - startTime;
 
@@ -217,7 +217,7 @@ int main()
         // Get execution time for totallyreversed.txt
         readFile(records, "data/totallyreversed.txt");
         startTime = currentTimeMillis();
-        insertionSort(records, 100000);
+        mergeSort(records, 0, 99999); // 100000 - 1
         endTime = currentTimeMillis();
         executionTimes[6] = endTime - startTime;
         break;
