@@ -99,9 +99,7 @@ void selectionSort(Record *arr, int n)
         
         // Swap min_index to correct location if it has been updated
 		if (min_index != i) {
-			temp = arr[i];
-        	arr[i] = arr[min_index];
-        	arr[min_index] = temp;
+			swapRecords(&arr[i], &arr[min_index]);
 		}
 	}
 
