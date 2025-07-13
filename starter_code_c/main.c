@@ -21,6 +21,11 @@ int main()
     printf("2 - Selection Sort\n");
     printf("3 - Merge Sort\n");
     printf("4 - Bubble Sort\n");
+    printf("5 - Verify Insertion Sort (using random100.txt)\n");
+    printf("6 - Verify Selection Sort (using random100.txt)\n");
+    printf("7 - Verify Merge Sort (using random100.txt)\n");
+    printf("8 - Verify Bubble Sort (using random100.txt)\n");
+    
 
     printf("Choice: ");
     scanf("%d", &input);
@@ -287,18 +292,53 @@ int main()
         executionTimes[6] = endTime - startTime;
         break;
     
+    case 5:
+        readFile(records, "data/random100.txt");
+        insertionSort(records, 100);
+
+    case 6:
+        readFile(records, "data/random100.txt");
+        selectionSort(records, 100);
+
+    case 7:
+        readFile(records, "data/random100.txt");
+        mergeSort(records, 0, 100-1);
+
+    case 8:
+        readFile(records, "data/random100.txt");
+        bubbleSort(records, 100);
+
     default:
         break;
     }
 
-    printf("Execution times:\n");
-    printf("almostsorted.txt: %ld\n", executionTimes[0]);
-    printf("random100.txt: %ld\n", executionTimes[1]);
-    printf("random25000.txt: %ld\n", executionTimes[2]);
-    printf("random50000.txt: %ld\n", executionTimes[3]);
-    printf("random75000.txt: %ld\n", executionTimes[4]);
-    printf("random100000.txt: %ld\n", executionTimes[5]);
-    printf("totallyreversed.txt: %ld\n", executionTimes[6]);
+    switch (input) // Output for the results
+    {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        printf("Execution times:\n");
+        printf("almostsorted.txt: %ld\n", executionTimes[0]);
+        printf("random100.txt: %ld\n", executionTimes[1]);
+        printf("random25000.txt: %ld\n", executionTimes[2]);
+        printf("random50000.txt: %ld\n", executionTimes[3]);
+        printf("random75000.txt: %ld\n", executionTimes[4]);
+        printf("random100000.txt: %ld\n", executionTimes[5]);
+        printf("totallyreversed.txt: %ld\n", executionTimes[6]);
+        break;
+    
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+        for(int i = 0; i < 100; i++)
+            printf("%d %s\n", records[i].idNumber, records[i].name);
+
+    default:
+        break;
+    }
+    
 
     return 0;
 }
