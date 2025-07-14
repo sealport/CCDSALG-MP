@@ -22,17 +22,17 @@ int main()
     printf("1 - Insertion Sort\n");
     printf("2 - Selection Sort\n");
     printf("3 - Merge Sort\n");
-    printf("4 - Bubble Sort\n");
+    printf("4 - Shell Sort\n");
     printf("Verify contents of files after sorting using random100.txt: \n");
     printf("5 - Verify Insertion Sort\n");
     printf("6 - Verify Selection Sort\n");
     printf("7 - Verify Merge Sort\n");
-    printf("8 - Verify Bubble Sort\n");
+    printf("8 - Verify Shell Sort\n");
     printf("Frequency Count of Sorting Algorithms:\n");
     printf("9 -  Count Insertion Sort\n");
     printf("10 - Count Selection Sort\n");
     printf("11 - Count Merge Sort\n");
-    printf("12 - Count Bubble Sort\n"); 
+    printf("12 - Count Shell Sort\n"); 
 
     printf("Choice: ");
     scanf("%d", &input);
@@ -234,13 +234,13 @@ int main()
         executionTimes[6] = endTime - startTime;
         break;
     
-    case 4: // Bubble sort
+    case 4: // Shell sort
         printf("Processing almostsorted.txt...\n");
 
         // Get execution time for almostsorted.txt
         readFile(records, "data/almostsorted.txt");
         startTime = currentTimeMillis();
-        bubbleSort(records, 100000);
+        shellSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[0] = endTime - startTime;
 
@@ -249,7 +249,7 @@ int main()
         // Get execution time for random100.txt
         readFile(records, "data/random100.txt");
         startTime = currentTimeMillis();
-        bubbleSort(records, 100);
+        shellSort(records, 100);
         endTime = currentTimeMillis();
         executionTimes[1] = endTime - startTime;
 
@@ -258,7 +258,7 @@ int main()
         // Get execution time for random25000.txt
         readFile(records, "data/random25000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(records, 25000);
+        shellSort(records, 25000);
         endTime = currentTimeMillis();
         executionTimes[2] = endTime - startTime;
 
@@ -267,7 +267,7 @@ int main()
         // Get execution time for random50000.txt
         readFile(records, "data/random50000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(records, 50000);
+        shellSort(records, 50000);
         endTime = currentTimeMillis();
         executionTimes[3] = endTime - startTime;
 
@@ -276,7 +276,7 @@ int main()
         // Get execution time for random75000.txt
         readFile(records, "data/random75000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(records, 75000);
+        shellSort(records, 75000);
         endTime = currentTimeMillis();
         executionTimes[4] = endTime - startTime;
 
@@ -285,7 +285,7 @@ int main()
         // Get execution time for random100000.txt
         readFile(records, "data/random100000.txt");
         startTime = currentTimeMillis();
-        bubbleSort(records, 100000);
+        shellSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[5] = endTime - startTime;
 
@@ -294,7 +294,7 @@ int main()
         // Get execution time for totallyreversed.txt
         readFile(records, "data/totallyreversed.txt");
         startTime = currentTimeMillis();
-        bubbleSort(records, 100000);
+        shellSort(records, 100000);
         endTime = currentTimeMillis();
         executionTimes[6] = endTime - startTime;
         break;
@@ -302,18 +302,22 @@ int main()
     case 5:
         readFile(records, "data/random100.txt");
         insertionSort(records, 100);
+        break;
 
     case 6:
         readFile(records, "data/random100.txt");
         selectionSort(records, 100);
+        break;
 
     case 7:
         readFile(records, "data/random100.txt");
         mergeSort(records, 0, 100-1);
+        break;
 
     case 8:
         readFile(records, "data/random100.txt");
-        bubbleSort(records, 100);
+        shellSort(records, 100);
+        break;
 
     case 9: // frequency count of Insertion sort
         printf("Processing almostsorted.txt...\n");
@@ -426,41 +430,41 @@ int main()
         mergeSortCount(records, 0, 100000-1, &freqCount[6]);
         break;
         
-    case 12: // frequency count of Bubble sort
+    case 12: // frequency count of Shell sort
         printf("Processing almostsorted.txt...\n");
         readFile(records, "data/almostsorted.txt");
         freqCount[0] = 0;
-        bubbleSortCount(records, 100000, &freqCount[0]);
+        shellSortCount(records, 100000, &freqCount[0]);
         
         printf("Processing random100.txt...\n");
         readFile(records, "data/random100.txt");
         freqCount[1] = 0;
-        bubbleSortCount(records, 100, &freqCount[1]);
+        shellSortCount(records, 100, &freqCount[1]);
         
         printf("Processing random25000.txt...\n");
         readFile(records, "data/random25000.txt");
         freqCount[2] = 0;
-        bubbleSortCount(records, 25000, &freqCount[2]);
+        shellSortCount(records, 25000, &freqCount[2]);
         
         printf("Processing random50000.txt...\n");
         readFile(records, "data/random50000.txt");
         freqCount[3] = 0;
-        bubbleSortCount(records, 50000, &freqCount[3]);
+        shellSortCount(records, 50000, &freqCount[3]);
         
         printf("Processing random75000.txt...\n");
         readFile(records, "data/random75000.txt");
         freqCount[4] = 0;
-        bubbleSortCount(records, 75000, &freqCount[4]);
+        shellSortCount(records, 75000, &freqCount[4]);
 
         printf("Processing random100000.txt...\n");
         readFile(records, "data/random100000.txt");
         freqCount[5] = 0;
-        bubbleSortCount(records, 100000, &freqCount[5]);
+        shellSortCount(records, 100000, &freqCount[5]);
         
         printf("Processing totallyreversed.txt...\n");
         readFile(records, "data/totallyreversed.txt");
         freqCount[6] = 0;
-        bubbleSortCount(records, 100000, &freqCount[6]);
+        shellSortCount(records, 100000, &freqCount[6]);
         break;
         
     default:

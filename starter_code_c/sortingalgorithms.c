@@ -247,48 +247,49 @@ void mergeSortCount(Record *arr, int p, int r, unsigned long* freqCount)
 * ones given above. Make sure that the method accepts an array of
 * record structures.
 */
-void bubbleSort(Record *arr, int n)
-{
-    int i, j;
-
-    for (i = 0 ; i < n ; i++)
-    {
-        for (j = n - 1 ; j >= i + 1 ; j--)
-        {
-            if (arr[j].idNumber < arr[j - 1].idNumber)
-            {
-                swapRecords(&arr[j], &arr[j - 1]);
-            }
-        }
-    }
+void shellSort(Record *arr, int n) {
+	int gap, i, j;
+	Record temp;
+	
+	for (gap = n/2; gap > 0; gap/= 2) {
+		
+		for (i = gap; i < n; i++) {
+			temp = arr[i];
+			
+			for (j = i; j >= gap && arr[j-gap].idNumber > temp.idNumber; j -= gap) {
+				arr[j] = arr[j-gap];
+			}
+			
+			arr[j] = temp;
+		}
+	}
 }
 
-void bubbleSortCount(Record *arr, int n, unsigned long* freqCount)
-{
-    int i, j;
-	*freqCount += 2; // assignments
+void shellSortCount(Record *arr, int n, unsigned long* freqCount) {
+	int gap, i, j;
+	Record temp;
+	*freqCount += 4; // assignments
+	
+	*freqCount += 1; // loop initial
+	for (gap = n/2; gap > 0; gap/= 2) {
+		*freqCount += 1; // loop iteration
 
-	*freqCount += 1; // initial i loop condition
-    for (i = 0 ; i < n ; i++)
-    { 
-		*freqCount += 1; // i loop iteration
+		*freqCount += 1; // loop initial
+		for (i = gap; i < n; i++) {
+			temp = arr[i];
+			*freqCount += 2; // loop iteration and assignment
 
-		*freqCount += 1; // initial j loop condition
-        for (j = n - 1 ; j >= i + 1 ; j--)
-        {
-			*freqCount += 1; // j loop iteration
-
-			*freqCount += 1; // if statement
-            if (arr[j].idNumber < arr[j - 1].idNumber)
-            {
-                swapRecords(&arr[j], &arr[j - 1]);
-				*freqCount += 4; // swap is worth 4 counts
-            }
-        }
-    }
+			*freqCount += 1; // loop initial			
+			for (j = i; j >= gap && arr[j-gap].idNumber > temp.idNumber; j -= gap) {
+				arr[j] = arr[j-gap];
+				*freqCount += 2; // loop iteration and assignment
+			}
+			
+			arr[j] = temp;
+			*freqCount += 1; // assignment
+		}
+	}
 }
-
-
 
 
 #endif
