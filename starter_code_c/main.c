@@ -316,176 +316,148 @@ int main()
         bubbleSort(records, 100);
 
     case 9: // frequency count of Insertion sort
-        printf("Processing totallyreversed.txt...\n");
-
+        printf("Processing almostsorted.txt...\n");
         readFile(records, "data/almostsorted.txt");
         freqCount[0] = 0;
         insertionSortCount(records, 100000, &freqCount[0]);
         
         printf("Processing random100.txt...\n");
-
         readFile(records, "data/random100.txt");
         freqCount[1] = 0;
         insertionSortCount(records, 100, &freqCount[1]);
         
         printf("Processing random25000.txt...\n");
-
         readFile(records, "data/random25000.txt");
         freqCount[2] = 0;
         insertionSortCount(records, 25000, &freqCount[2]);
         
         printf("Processing random50000.txt...\n");
-
         readFile(records, "data/random50000.txt");
         freqCount[3] = 0;
         insertionSortCount(records, 50000, &freqCount[3]);
         
         printf("Processing random75000.txt...\n");
-
         readFile(records, "data/random75000.txt");
         freqCount[4] = 0;
-        insertionSortCount(records, 75000, &freqCount[5]);
+        insertionSortCount(records, 75000, &freqCount[4]);
 
         printf("Processing random100000.txt...\n");
-
         readFile(records, "data/random100000.txt");
         freqCount[5] = 0;
         insertionSortCount(records, 100000, &freqCount[5]);
         
         printf("Processing totallyreversed.txt...\n");
-
         readFile(records, "data/totallyreversed.txt");
         freqCount[6] = 0;
         insertionSortCount(records, 100000, &freqCount[6]);
         break;
 
     case 10: // frequency count of Insertion sort
-        printf("Processing totallyreversed.txt...\n");
-
+        printf("Processing almostsorted.txt...\n");
         readFile(records, "data/almostsorted.txt");
         freqCount[0] = 0;
         selectionSortCount(records, 100000, &freqCount[0]);
         
         printf("Processing random100.txt...\n");
-
         readFile(records, "data/random100.txt");
         freqCount[1] = 0;
         selectionSortCount(records, 100, &freqCount[1]);
         
         printf("Processing random25000.txt...\n");
-
         readFile(records, "data/random25000.txt");
         freqCount[2] = 0;
         selectionSortCount(records, 25000, &freqCount[2]);
-        
+    
         printf("Processing random50000.txt...\n");
-
         readFile(records, "data/random50000.txt");
         freqCount[3] = 0;
         selectionSortCount(records, 50000, &freqCount[3]);
         
         printf("Processing random75000.txt...\n");
-
         readFile(records, "data/random75000.txt");
         freqCount[4] = 0;
-        selectionSortCount(records, 75000, &freqCount[5]);
+        selectionSortCount(records, 75000, &freqCount[4]);
 
         printf("Processing random100000.txt...\n");
-
         readFile(records, "data/random100000.txt");
         freqCount[5] = 0;
         selectionSortCount(records, 100000, &freqCount[5]);
         
         printf("Processing totallyreversed.txt...\n");
-
         readFile(records, "data/totallyreversed.txt");
         freqCount[6] = 0;
         selectionSortCount(records, 100000, &freqCount[6]);
         break;
     
     case 11: // frequency count of Merge sort
-        printf("Processing totallyreversed.txt...\n");
-
+        printf("Processing almostsorted.txt...\n");
         readFile(records, "data/almostsorted.txt");
         freqCount[0] = 0;
         mergeSortCount(records, 0, 100000-1, &freqCount[0]);
         
         printf("Processing random100.txt...\n");
-
         readFile(records, "data/random100.txt");
         freqCount[1] = 0;
         mergeSortCount(records,0, 100-1, &freqCount[1]);
         
         printf("Processing random25000.txt...\n");
-
         readFile(records, "data/random25000.txt");
         freqCount[2] = 0;
         mergeSortCount(records, 0, 25000-1, &freqCount[2]);
         
         printf("Processing random50000.txt...\n");
-
         readFile(records, "data/random50000.txt");
         freqCount[3] = 0;
         mergeSortCount(records, 0, 50000-1, &freqCount[3]);
         
         printf("Processing random75000.txt...\n");
-
         readFile(records, "data/random75000.txt");
         freqCount[4] = 0;
-        mergeSortCount(records, 0, 75000-1, &freqCount[5]);
+        mergeSortCount(records, 0, 75000-1, &freqCount[4]);
 
         printf("Processing random100000.txt...\n");
-
         readFile(records, "data/random100000.txt");
         freqCount[5] = 0;
         mergeSortCount(records, 0, 100000-1, &freqCount[5]);
         
         printf("Processing totallyreversed.txt...\n");
-
         readFile(records, "data/totallyreversed.txt");
         freqCount[6] = 0;
         mergeSortCount(records, 0, 100000-1, &freqCount[6]);
         break;
         
     case 12: // frequency count of Bubble sort
-        printf("Processing totallyreversed.txt...\n");
-
+        printf("Processing almostsorted.txt...\n");
         readFile(records, "data/almostsorted.txt");
         freqCount[0] = 0;
         bubbleSortCount(records, 100000, &freqCount[0]);
         
         printf("Processing random100.txt...\n");
-
         readFile(records, "data/random100.txt");
         freqCount[1] = 0;
         bubbleSortCount(records, 100, &freqCount[1]);
         
         printf("Processing random25000.txt...\n");
-
         readFile(records, "data/random25000.txt");
         freqCount[2] = 0;
         bubbleSortCount(records, 25000, &freqCount[2]);
         
         printf("Processing random50000.txt...\n");
-
         readFile(records, "data/random50000.txt");
         freqCount[3] = 0;
         bubbleSortCount(records, 50000, &freqCount[3]);
         
         printf("Processing random75000.txt...\n");
-
         readFile(records, "data/random75000.txt");
         freqCount[4] = 0;
-        bubbleSortCount(records, 75000, &freqCount[5]);
+        bubbleSortCount(records, 75000, &freqCount[4]);
 
         printf("Processing random100000.txt...\n");
-
         readFile(records, "data/random100000.txt");
         freqCount[5] = 0;
         bubbleSortCount(records, 100000, &freqCount[5]);
         
         printf("Processing totallyreversed.txt...\n");
-
         readFile(records, "data/totallyreversed.txt");
         freqCount[6] = 0;
         bubbleSortCount(records, 100000, &freqCount[6]);
